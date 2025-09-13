@@ -15,3 +15,12 @@
 - 標準組み込み関数にはparseInt()、標準組み込みオブジェクトにはMathがある。
 - ブラウザーAPIは、ブラウザやユーザーの動作に応じて、動的にwebページを操作することを可能にするAPI。windowの動きを制御するwindowオブジェクトとhtml,cssを制御するdocumentオブジェクトがある。イベントでは、要素を取得した後、それに対してhtmlを操作するきっかけを追加する。
 - JSのデバック方法では、console.log()を用いて、原因を細かく切り分けて考える。
+
+## September 13
+- JS, frontend
+- カウンタープログラムの処理手順
+    1. getElementById()の引数にjs-counterを指定し、htmlのカウンターの数字を表示する要素を取得して、変数$counterに代入
+    2. document.getElementById("js-button").addEventListener()で、ボタンがクリックされた時に、カウンターの数字を取得し、それに1を足した値を再度カウンターの数字に代入
+- カウンタープログラム2の処理手順
+    1. counter.jsでは、まず、getElementsByClassName()で、クラス名でhtml要素を取得。「クリックイベントそのもののオブジェクト」を意味するeという引数をaddEventListener()に渡して、クリックされた単独の要素だけを返すcurrentTargetを用いる。currentTargetとカウンター要素を取得して、ボタン要素が持つテキストが+なら＋1、-なら-1する
+    2. reset.jsでは、ボタン要素がクリックされたら、カウンターのテキストの値を0にする
