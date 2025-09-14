@@ -24,3 +24,19 @@
 - カウンタープログラム2の処理手順
     1. counter.jsでは、まず、getElementsByClassName()で、クラス名でhtml要素を取得。「クリックイベントそのもののオブジェクト」を意味するeという引数をaddEventListener()に渡して、クリックされた単独の要素だけを返すcurrentTargetを用いる。currentTargetとカウンター要素を取得して、ボタン要素が持つテキストが+なら＋1、-なら-1する
     2. reset.jsでは、ボタン要素がクリックされたら、カウンターのテキストの値を0にする
+
+## September 14
+- JS, frontend
+- クイズゲームの処理手順
+    定数の文字列をhtmlに反映
+    1. 問題文、選択肢、答えを定義
+    2. htmlのテキスト要素を取得して、問題文に書き換え
+    3. htmlボタン要素を取得して、選択肢に書き換え
+    *(2.3.は関数setupQuiz()にする)
+    ボタンをクリックしたら正誤判定
+    1. ボタンに対してaddEventListenerを設定して、クリックされたらcorrectとtextContentが一致したら正解・しなかったら不正解
+    2. quizIndexとquizLengthを定義して、正誤判定後にこの2つが一致するまでquizIndexを+1してsetupQuiz()の処理をループさせることで、クイズの数分繰り返せるようにする
+    結果画面
+    1. scoreを定義
+    2. 正誤判定で正解したらscoreに+1
+    3. quizIndexとquizLengthが一致したらテキストとして出力
