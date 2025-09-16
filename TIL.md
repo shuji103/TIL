@@ -56,3 +56,43 @@
         3. 対象外のnav,content全てリセット（ループ文で、コンテンツエリアを非表示、ナビゲーション要素のis-activeというクラスを排除）
         4. 2で取ってきた情報をもとに、対象のコンテンツエリアのみの要素を取得して、アクティブ化（その要素に対して、見える化、is-activeというクラスを付け加えてスタイル適応）
     6. 全nav要素に対して関数を適応・発火
+
+## September 16
+- JS, frontend
+- クラスとインスタンス
+    - クラスは構造の部分で、インスタンスはこの構造をもとに固有の値を入れて出力していったもの
+    - クラスをまず作って、そこからAさんの投稿、Bさんの投稿というインスタンスを作っていく
+    - class クラス名 {
+        // 初期化
+        constructor(obj){
+            // 要素の取得 (obj.◯◯)
+            // 実行部分
+            this.関数名();
+        }
+        // 関数の定義
+        関数名(){}
+      }
+      // インスタンスの生成
+      const インスタンス名 = new クラス名({オブジェクトのkey: '値'});
+
+- AccordionUIの処理手順（クラスとインスタンスなしver.）
+    html
+    1. js-accordionというidのdivタグを作成
+    2. accordion-trigger（コンテンツを展開するクリックする部分）とaccordion-contentsというクラス作成
+    css
+    1. display: none;で、contentsの初期表示を非表示に
+    js
+    1. DOM要素の取得(#js-accordion, aタグ)
+    2. 実行部分（addEventListenerで、triggerがクリックされたら、関数clickHandlerの引数にeを渡して実行）
+    3. 関数の定義（クリックしたら、イベントを殺し（aタグのページ遷移の無効化し）、currentTargetとnextElementSiblingで、クリックされた要素の次の要素(コンテンツ部分)を取得し、そのスタイルが表示状態なら非表示に、非表示状態なら表示させる）
+
+- AccordionUIの処理手順（クラスとインスタンスありver.）
+    js
+    1. クラス内のconstructorを実行
+        1. DOM要素の取得（引数にobjを渡し、インスタンスで指定した部分(hookName, tagName)を呼び、obj.hookName, obj.tagNameで指定した要素(id名, タグ名)を取得）
+        2. 実行部分（this.clickHandlerで、クラス内の関数の定義部分を呼んで実行）
+        3. 関数の定義
+    html
+    1. 同じ構造のhtmlをコピペし、id, タグをインスタンスと対応させる
+    js
+    1. インスタンスの生成部分で、インスタンスの名前、hookName、tagNameを対応させる
