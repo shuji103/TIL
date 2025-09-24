@@ -360,3 +360,35 @@
     - アプリケーションがどういう要件なのか、どういう画面なのかに基づいて、必要なデータを決める
     - 要件定義をしっかり行う&理解する
     - データに矛盾が生じないよう、オペレーションミスがあっても大丈夫なように正規化する
+
+## September 24
+- データベース
+- SQL, CRUD, Cookie, LocalStorage
+
+- SQL：データベース言語（DBMSに命令して、格納されているデータの抽出や解析をする際に用いる言語）
+    - データベース：階層型（ツリー状）、ネットワーク型（網状）、RDB型（表状）の３種類がある
+    - RDBMS（Relational DataBase Management System）
+    - RDB型データベース管理システム
+    - SQL言語の種類
+    - DDL：データ定義言語
+    - DML：データ操作言語
+    - DCL：データ制御言語
+
+- SQLが使える主要データベース
+    - MySQL, Maria DB, PostgreSQL, Oracle Database, SQ Lite,
+
+- CRUD
+    - システムに最低限必要な4つの基本機能（Create, Read, Update, Delete）の頭文字を並べた用語
+    - CRUD分析：登録、参照、更新、削除できるかを確認する分析
+    - CRUD図：登録機能、参照機能、更新機能、削除機能があるかを表現した図
+
+- Cookie
+    - **サーバー**がブラウザに送信するデータ（Webサイトに訪問したユーザーに関する情報）
+    - Cookieの操作方法2つ
+    1. 標準で用意されていdocument.cookieという機能
+    2. js-cookieというライブラリ
+
+
+- LocalStorage
+    - WebStorageと呼ばれるものの一つで、javascriptを用いてクライアント側にデータを保存する仕組み
+    - Cookieとは違って、**サーバー**へデータを送信しないから、通信リソースに影響しない
