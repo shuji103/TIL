@@ -476,3 +476,77 @@
                               GROUP BY category);
         - グローブの価格なら、グローブの平均価格をとってくるといったように、カテゴリーが同じ平均価格をもってきて、WHERE (価格) >= (対応するカテゴリーの平均価格);を実行できる
     - 実際に実行されるSQL文を書いて、イメージすることが大事
+
+## September 26
+- html, css復習（Blogのコーディングまで）
+- Hours studied: 6.5h
+
+### 余白の設定プロセス
+1. まずリセット（marginやpaddingをリセットする基準）
+    - デフォルトでpaddingやmarginが入っているタグに対してリセット
+    - About
+        - (figureタグ)：margin入ってる
+    - Feature
+        - grid（ulタグ）: paddingやmargin入ってる
+        - Feature-description(ddタグ):  *pタグはdlタグ内のddと同じようなもの：（pタグもデフォルトでmargin入っている）
+    - Blog
+        - card-description(pタグ): margin入ってる
+
+2. その後、順次、見やすくなるようにpaddingやmarginを調整する基準
+    - About
+        * section
+        - sectionタグ: paddingで上下左右の間を調整
+        - section-headline（h1タグ）：marginで下を調整
+
+        * about
+        - about-caption(figcaptionタグ)：paddingで間を調整（画像と説明の間に空間ほしい）
+        - about-headline(h1タグ): marginで下を調整
+
+    - Feature
+        * grid
+        - grid(ulタグ)：レスポンシブ対応のためにmarginで上下を調整
+
+        * feature
+        - feature(dlタグ): paddingで間を調整（説明の横幅がほしい）
+        - feature-headline（dtタグ）, feature-img(ddタグ): marginで下を調整
+
+    - Blog
+        * card
+        - card(articleタグ): paddingで間を調整（左右の余白を入れて見やすくしたい）
+        - card-label(spanタグ): paddingで上下左右の間を調整（余白を入れたい）
+        - card-headline(h1タグ): marginで上下左右を調整（デカすぎる）
+
+        * avator
+        - avator(dlタグ): paddingで上下左右の間を調整
+        - avator-name(dtタグ): paddingで左の間を調整
+        - avator-image(imgタグ): marginで上下左右を調整（一番左に来るようにしたい）
+
+        * button
+        - button(aタグ): paddingで上下左右の間を調整(display: inline-blockだから)
+
+        * section
+        - section-button(divタグ): marginで上を調整
+
+### このことからわかる使い分けパターン
+
+1. まず、figure, ul, dd, pタグは、デフォルトでmarginやpaddingが入ってるからリセット
+    * figureタグにはimgタグとfigcaptionタグが入るから、margin入る
+    * ulタグにはliタグ（dlタグ（dtタグとddタグ））が入るから、marginとpadding入る
+    * ddタグとpタグは段落だから、margin入る
+
+2. パターンに従ってmarginかpaddingを適応
+-  h1, ul, dt, dd, img, divタグはmarginで調整
+    1. imgタグなど一番端に配置したい時
+    2. 縦に並んでいる要素があって、上下の間が窮屈であけたい時（h1, ul, dt, dd, div）
+    → margin
+
+-  section, figcaption, dl, article, span, dt, aタグはpaddingで調整
+    1. sectionやspan, aタグなどコンポーネントそのものを見やすくしたい時（文字と枠との距離をあけたい時）
+    2. 横に並んでいる要素があって、左右の間が窮屈であけたい時（figcaption, dl, article, dt）
+    → padding
+
+### display: flex, block, inline-blockの違い
+
+- flex: 横並びにする（gridの表示形式）
+- block: flexでブロック要素を横並びにしていたのを、縦並びにする（レスポンシブ対応）
+- inline-block: 横並びだけど上下左右に余白を持てるようにする（aタグのボタン）
