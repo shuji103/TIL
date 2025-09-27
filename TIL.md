@@ -553,7 +553,7 @@
 - inline-block: 横並びだけど上下左右に余白を持てるようにする（aタグのボタン）
 
 
-## September 28
+## September 27
 - html, css復習（Contactのコーディング〜その他補足）
 - Hours studied: 7.5h
 
