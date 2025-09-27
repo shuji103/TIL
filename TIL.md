@@ -504,11 +504,12 @@
 
     - Feature
         * grid
-        - grid(ulタグ)：レスポンシブ対応のためにmarginで上下を調整
+        - grid(liタグ)：marginで上下を調整（レスポンシブ対応のため）
 
         * feature
         - feature(dlタグ): paddingで間を調整（説明の横幅がほしい）
-        - feature-headline（dtタグ）, feature-img(ddタグ): marginで下を調整
+        - feature-headline(dtタグ): marginで下を調整
+        - feature-img(ddタグ): marginで下を調整
 
     - Blog
         * card
@@ -519,7 +520,7 @@
         * avator
         - avator(dlタグ): paddingで上下左右の間を調整
         - avator-name(dtタグ): paddingで左の間を調整
-        - avator-image(imgタグ): marginで上下左右を調整（一番左に来るようにしたい）
+        - avator-image(ddタグ): marginで上下左右を調整（一番左に来るようにしたい）
 
         * button
         - button(aタグ): paddingで上下左右の間を調整(display: inline-blockだから)
@@ -535,8 +536,8 @@
     * ddタグとpタグは段落だから、margin入る
 
 2. パターンに従ってmarginかpaddingを適応
--  h1, ul, dt, dd, img, divタグはmarginで調整
-    1. imgタグなど一番端に配置したい時
+-  h1, li, dt, dd, divタグはmarginで調整
+    1. ddタグなど一番端に配置したい時
     2. 縦に並んでいる要素があって、上下の間が窮屈であけたい時（h1, ul, dt, dd, div）
     → margin
 
@@ -549,4 +550,132 @@
 
 - flex: 横並びにする（gridの表示形式）
 - block: flexでブロック要素を横並びにしていたのを、縦並びにする（レスポンシブ対応）
+- inline-block: 横並びだけど上下左右に余白を持てるようにする（aタグのボタン）
+
+
+## September 28
+- html, css復習（Contactのコーディング〜その他補足）
+- Hours studied: 7.5h
+
+### 余白の設定プロセス
+1. まずリセット（marginやpaddingをリセットする基準）
+    - デフォルトでpaddingやmarginが入っているタグに対してリセット
+    - About
+        - about(figureタグ)：margin入ってる
+    - Feature
+        - grid(ulタグ): paddingやmargin入ってる
+            - Feature-description(ddタグ):  *pタグはdlタグ内のddと同じようなもの：（pタグもデフォルトでmargin入っている）
+    - Blog
+        - card-description(pタグ): margin入ってる
+    - Footer
+        - footer-map(figureタグ): margin入ってる
+    - Header
+        - header-logo(h1タグ): margin入ってる
+        - header-navlist(ulタグ): margin入ってる
+
+
+2. その後、順次、見やすくなるようにpaddingやmarginを調整する基準
+    - About
+        * section
+        - section(sectionタグ): paddingで上下左右の間を調整（レスポンシブ対応でもpadding調整）
+            - section-headline（h1タグ）：marginで下を調整（レスポンシブ対応でもmargin調整）
+
+        * about
+        - about-caption(figcaptionタグ)：paddingで間を調整（画像と説明の間に空間ほしい）
+            - about-image(imgタグ): marginで下を調整（レスポンシブ対応）
+            - about-headline(h2タグ): marginで下を調整
+
+    - Feature
+        * grid
+        - grid-item(liタグ)：marginで上下を調整(レスポンシブ対応)
+
+        * feature
+        - feature(dlタグ): paddingで間を調整（説明の横幅がほしい）
+            - feature-headline(dtタグ): marginで下を調整
+            - feature-img(ddタグ): marginで下を調整
+
+    - Blog
+        * card
+        - card(articleタグ): paddingで間を調整（左右の余白を入れて見やすくしたい）
+            - card-label(spanタグ): paddingで上下左右の間を調整（余白を入れたい）
+            - card-headline(h1タグ): marginで上下左右を調整（デカすぎる）
+
+        * avator
+        - avator(dlタグ): paddingで上下左右の間を調整
+            - avator-name(dtタグ): paddingで左の間を調整
+            - avator-image(ddタグ): marginで上下左右を調整（一番左に来るようにしたい）
+
+        * button
+        - button(aタグ): paddingで上下左右の間を調整(display: inline-blockだから)
+
+        * section
+        - section-button(divタグ): marginで上を調整（レスポンシブ対応でもmargin調整）
+
+
+
+
+    - Contact
+        * select, input, radio, textarea(tdタグ内のタグ)
+        - select(selectタグ): paddingで上下左右の間を調整（要素自体をデカくして見やすく）
+        - input(inputタグ): paddingで上下左右の間を調整
+        - radio(radioタグ): marginで左右を調整（横幅詰まっているから）
+        - textarea(textareaタグ): paddingで上下左右の間を調整
+
+        * form
+        - form-table(tableタグ): marginで上下左右を調整（中央寄せにしたい）
+            - thタグ: paddingで上下左右の間を調整
+            - tdタグ: paddingで上下左右の間を調整
+
+        * button
+        - form-button(divタグ): marginで上を調整
+
+    - Works
+        * works
+        - works(asideタグ): marginで上下を調整、paddingで上下左右の間を調整（レスポンシブ対応でもmargin, paddingどちらも調整）
+            - imgタグ: marginで左右を調整（レスポンシブ対応ではmarginで左右上下を調整）
+
+    - Footer
+        * footer
+        - footer-map(figureタグ): paddingで上下左右の間を調整（レスポンシブ対応でもpadding調整）
+            - footer-mapinfo(figcaptionタグ): paddingで上下左右の間を調整
+                - svg(svgタグ): marginで右を調整
+        - footer-copy(smallタグ): paddingで上下左右の間を調整
+
+    - Header
+        * header
+        - header(headerタグ): paddingで左右の間を調整
+        - aタグ: paddingで上下左右の間を調整
+
+
+### このことからわかる使い分けパターン
+1. まず、figure, ul, dd, pタグは、デフォルトでmarginやpaddingが入ってるからリセット
+    * figureタグにはimgタグ（またはiframeタグ）とfigcaptionタグが入るから、margin入る
+    * ulタグにはliタグ（dlタグ（dtタグとddタグ））が入るから、marginとpadding入る
+    * ddタグとpタグは段落だから、margin入る
+
+2. パターンに従ってmarginかpaddingを適応
+-  h1/2, li, dt, dd, divタグ, radio, table, aside, img, svgタグは、marginで調整
+    1. 一番端に配置したい時や中央寄せにしたい時（dd, table）
+    2. 縦に並んでいる要素があって、上下の間が窮屈であけたい時（h1/h2, li, dt, dd, div）
+    3. 縦に並んでいる要素（sectionタグなどのコンポーネント）があって、上下の間が窮屈であけたい時（aside）
+    4. 複数のタグ要素（imgとimgのような同じタグ同士 or svgとtextのような異なる要素同士）がむき出しに並べてあって、左右の間が窮屈であけたい時（radio, img, text）
+    → margin
+    * 4は、レスポンシブ対応で、上下の間が窮屈で開けたい時も含む（img）
+
+-  section, figcaption, dl, article, span, dt, aタグ, select, input, textarea, th, td, aside, footerのfigure, footerのfigcaption, small, headerは、paddingで調整
+    1. コンポーネントそのものを見やすくしたい時（文字と枠との距離をあけたい時）（sectionやspan, a, select, input, textarea, th, td, aside, footerのfigure, footerのfigcaption, small, header）
+    2. 横に並んでいる要素があって、左右の間が窮屈であけたい時（figcaption, dl, article, dt）
+    → padding
+    * footerのfigureをpaddingで調整するのは、footerタグ自体にはpaddingで調整してないから。sectionのfigureはsectionでpadding調整済みだからpadding調整しなくていい
+    * footerのfigcaptionを上下左右調整するのは、中央寄せにしているから。sectionのfigcaptionはimgとの間を開けたいだけだから左右のみ調整している
+
+
+### display: flex, block, inline-blockの違い
+- flex: 横並びにする（gridの表示形式）
+- block:(パターン)
+    1. flexでブロック要素を横並びにしていたのを、縦並びにする（レスポンシブ対応）
+    2. tableタグでdisplay: table（行の要素が入る）になっていたのを、なくして縦並びにする（レスポンシブ対応）
+    3. smallタグ（inline要素）をdisplay: blockにして、中央揃えにする
+    4. strongタグ(inline要素)をdisplay: blockにして、横幅を画面一杯まで広げる
+    5. aタグ(inline要素)をdisplay: blockにしておく（一応）
 - inline-block: 横並びだけど上下左右に余白を持てるようにする（aタグのボタン）
